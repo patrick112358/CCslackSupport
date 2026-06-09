@@ -1,0 +1,17 @@
+[Unit]
+Description=LAL IT Support Slack Bot
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/cc-slack-support
+ExecStart=/usr/bin/node index.js
+Restart=always
+RestartSec=10
+EnvironmentFile=/opt/cc-slack-support/.env
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
